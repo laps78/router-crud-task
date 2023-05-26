@@ -29,10 +29,22 @@ function PostList({ posts }) {
   
   return (
     <div className="post-list">
-      <ButtonSave />
-      {posts != null ? <PostListElement posts={posts}/>  : <p className="post-list" style={{color: 'gray',}}>Сорян, постов нет...</p>}
+      <nav
+        className="upper-button-container"
+      >      
+        <ButtonSave />
+      </nav>
+      {
+        (posts != null)
+          ?
+          <PostListElement posts={posts} />
+          :
+          <p className="post-list" style={{ color: 'gray', }}>
+            Сорян, постов нет...
+          </p>
+      }
     </div>
-  )
+  );
 };
 
 PostList.propTypes = {

@@ -4,16 +4,13 @@ import './ButtonSave.css';
 
 function ButtonSave() {
   return (
-    <nav
-      className="upper-buttons-container"
+    <Link
+      to="/posts/new"
+      className="button-blue"
     >
-      <Link
-        to="/posts/new"
-        className="button-blue"
-      >
-        Создать пост
-      </Link>
-    </nav>);
+      Создать пост
+    </Link>
+  );
 }
 
 export default ButtonSave;
