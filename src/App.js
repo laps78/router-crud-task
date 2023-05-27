@@ -1,7 +1,7 @@
 // modules
 import "./App.css";
-import useRequest from "./components/hooks/useRequest";
-import { useState, useEffect } from 'react';
+import useRequest from "./hooks/useRequest";
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components

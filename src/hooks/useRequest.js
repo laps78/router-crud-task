@@ -31,7 +31,7 @@ async function useRequest(url, { opts }) {
 
 useRequest.propTypes = {
   url: PropTypes.string.isRequired,
-  opts: PropTypes.string,
+  opts: PropTypes.string.isRequired,
 }
 
 export default useRequest;
