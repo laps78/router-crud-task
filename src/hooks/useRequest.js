@@ -24,9 +24,12 @@ async function useRequest(url, { opts }) {
     if (opts === 'posts') {
       makeGetRequest(url + opts);
     };
+    if (opts === 'DELETE') {
+      console.log('delete request');
+    }
   }, [opts])
 
-  return [{data, isLoading, error}];
+  return [{ data, isLoading, error }];
 }
 
 useRequest.propTypes = {

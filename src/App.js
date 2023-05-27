@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
-import PostList from "./components/ui/PostList/PostList";
+import PostList from "./components/PostList/PostList";
 
 function App() {
   const [ prefs, setPrefs ] = useState({
     serverUrl: 'http://localhost:7777/',
   })
-  const { data, isLoading, error } = useRequest(prefs.serverUrl, { opts: 'posts', })
+  const {data, isLoading, error} = useRequest(prefs.serverUrl, { opts: 'posts', })
   const [ posts, setPosts ] = useState(data);
   
   // todo remove logs
