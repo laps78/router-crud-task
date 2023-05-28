@@ -1,0 +1,15 @@
+.post-list {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
