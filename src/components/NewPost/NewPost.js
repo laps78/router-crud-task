@@ -4,9 +4,10 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 
 function NewPost() {
-  const addNewPostButtonHandler = (event) => {
+  const addNewPostSubmitHandler = (event) => {
     event.preventDefault();
-    const input = event.target.parentElement.parentElement[0];
+    const input = event.target[0];
+    console.log("e.target:", event.target[0]);
     let formValue = input.value.trim();
 
     // todo remove log button handler
@@ -45,7 +46,7 @@ function NewPost() {
           alt="new post header string"
         />
       </header>
-      <form className="new-post-form">
+      <form className="new-post-form" onSubmit={addNewPostSubmitHandler}>
         <div className="new-post-content">
           <div className="avatar-wrapper">
             <img src="#" alt="avatar" />
@@ -58,10 +59,7 @@ function NewPost() {
           ></input>
         </div>
         <div className="new-post-button-wrapper">
-          <button
-            className="button new-post-submit button-blue"
-            onClick={addNewPostButtonHandler}
-          >
+          <button className="button new-post-submit button-blue">
             Опубликовать
           </button>
         </div>
