@@ -1,29 +1,21 @@
 // modules
 import "./App.css";
-import useRequest from "./hooks/useRequest";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
 import PostList from "./components/PostList/PostList";
 import NewPost from "./components/NewPost/NewPost";
+import getRequest from "./requests/getRequest.js";
 
 function App() {
   const [posts, setPosts] = useState(null);
-  const { data, isLoading, error } = useRequest(
-    process.env.REACT_APP_POSTS_URL,
-    {
-      opts: "posts",
-      postData: null,
-    }
+
+  useEffect(() => {
+    const newData = getRequest(process.env.REACT_APP_POSTS_URL, "posts");
+    setPosts(newData);
+  }, []
   );
-
-  // todo remove logs
-  // console.log("App(data):", data);
-  // console.log("App(isLoading):", isLoading);
-  // console.log("App(error):", error);
-
-  useEffect(() => setPosts(data), [data]);
 
   return (
     <div className="App">
