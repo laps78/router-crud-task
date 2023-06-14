@@ -10,10 +10,12 @@ import getRequest from "./requests/getRequest.js";
 
 function App() {
   const [posts, setPosts] = useState(null);
+  const [isloading, setloading] = useState(false);
 
   useEffect(() => {
-    const newData = getRequest(process.env.REACT_APP_POSTS_URL, "posts");
-    setPosts(newData);
+    console.log('useEffect app js');
+    const newData = getRequest(process.env.REACT_APP_POSTS_URL, "posts", setloading);
+    newData.then(data => setPosts(data));
   }, []
   );
 
@@ -27,7 +29,7 @@ function App() {
       <Router>
         <div className="page">
           <Routes>
-            <Route path="/" element={<PostList posts={posts} />} />
+            <Route path="/" element={<PostList posts={posts} loading={isloading} />} />
             <Route path="/posts/new" element={<NewPost />} />
             <Route path="/posts/:id" element={<div>post</div>} />
             <Route path="/pists/edit/:id" element={<div>edit post</div>} />

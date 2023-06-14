@@ -6,7 +6,8 @@ import { PropTypes } from 'prop-types';
 import ButtonSave from "../ui-elems/ButtonSave";
 import PostCard from "../PostCard/PostCard";
 
-function PostList({ posts }) {
+function PostList({ posts, loading }) {
+  console.log("postlist posts: ", posts);
   const showPosts = (posts) => posts.map(post => {
     return (
       <PostCard
@@ -20,6 +21,7 @@ function PostList({ posts }) {
   });
 
   const PostListElement = ({ posts }) => {
+    
     return (
       <>
         {showPosts(posts)}
@@ -35,13 +37,13 @@ function PostList({ posts }) {
         <ButtonSave />
       </nav>
       {
-        (posts != null)
+        (posts === null)
           ?
-          <PostListElement posts={posts} />
-          :
           <p className="post-list" style={{ color: 'gray', }}>
             Сорян, постов нет...
           </p>
+          :
+          loading ? <p>Загружаем данные...</p> : <PostListElement posts={posts} />
       }
     </div>
   );
