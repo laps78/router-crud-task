@@ -15,9 +15,11 @@ function NewPost() {
 
     // validate text length
     if (formValue.length > 0) {
-      makePostRequest(process.env.REACT_APP_POSTS_URL + "posts", {
-        id: nanoid(),
+      const newPostId = nanoid();
+      makePostRequest(process.env.REACT_APP_POSTS_URL + `posts/${newPostId}`, {
+        id: newPostId,
         content: formValue,
+        timestamp: new Date(),
       });
 
       // clear textarea
@@ -33,7 +35,7 @@ function NewPost() {
         console.info(err);
       })
       .finally(() => {
-        window.location.href = process.env.REACT_APP_HOME_URL;
+        window.location.href = '/';
       });
   };
 

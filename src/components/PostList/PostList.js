@@ -11,11 +11,10 @@ function PostList({ posts, loading }) {
   const showPosts = (posts) => posts.map(post => {
     return (
       <PostCard
-        key={posts.id}
-        author_name={posts}
-        avatar_url={posts}
-        post_content={posts}
-        post_modified={posts}
+        key={post.id}
+        author_name={"Ilnaz Gilyazov"}
+        avatar_url={'#'}
+        post_content={post.content}
       />
     );
   });

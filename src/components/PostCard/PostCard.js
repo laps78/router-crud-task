@@ -20,8 +20,8 @@ function PostCard({ author_name, avatar_url, post_content, post_modified }) {
           </div>
         </div>
       </header>
-      <img src="./img/post-footer.png" alt="post footer" />
       {post_content}
+      <img src="./img/post-footer.png" alt="post footer" />
     </article>
   );
 }
